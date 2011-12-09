@@ -1,0 +1,7 @@
+Metastreams is a framework made with Node.js and Mongoose/MongoDB
+for microblogging of arbitrary semantic data (locations, contacts, 
+images, videos, quizzes, etc) by arbitrary kinds of agents (people,
+pages, programs, sensors, etc). 
+
+It aims to become a highly extensible annotation microblogging framework
+upon which services such as twitter, tumblr, disqus, pinterest, etc can be built.
