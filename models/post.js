@@ -17,7 +17,9 @@ PostSchema = new Schema({
     downvotes: Number,
     // Payload of the post
     data: {
+        // type of the post a string
         postType: { type: String, required: true },
+        // we need a completely arbitrary schema type, so we won't use a ref
         content: { type: Schema.ObjectId, required: true }
     }
 });

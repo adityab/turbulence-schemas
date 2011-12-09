@@ -2,7 +2,7 @@ mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 require('./models/schemas.js');
-require('./controllers/access.js');
+require('./controllers/contentSchemas.js');
 
 mongoose.connect('mongodb://localhost/metastreams_db_1');
 
