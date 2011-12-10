@@ -13,8 +13,8 @@ PostSchema = new Schema({
     // Agents that have write (edit/delete) access to this post, like in a wiki
     canWrite: { type: [{ type: Schema.ObjectId, ref: 'Agent' }], required: true },
     // Upvotes and downvotes
-    upvotes: Number,
-    downvotes: Number,
+    upvotes: { type: Number, default: 0 },
+    downvotes: { type: Number, default: 0 },
     // Payload of the post
     data: {
         // type of the post a string
