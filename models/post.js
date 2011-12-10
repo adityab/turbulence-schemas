@@ -8,10 +8,12 @@ PostSchema = new Schema({
     targetAgent: { type: Schema.ObjectId, ref: 'Agent' },
     // The post this post is directed to (reply)
     targetPost: { type: Schema.ObjectId, ref: 'Post' },
+    // Visibility flags
+    visibility: { type: String, enum: ['public', 'custom', 'private'], default: 'public', required: true },
     // Agents that have read access to this post
-    canRead: { type: [{ type: Schema.ObjectId, ref: 'Agent' }], required: true },
+    canRead: { type: [{ type: Schema.ObjectId, ref: 'Agent' }] },
     // Agents that have write (edit/delete) access to this post, like in a wiki
-    canWrite: { type: [{ type: Schema.ObjectId, ref: 'Agent' }], required: true },
+// -> TODO:  canWrite: { type: [{ type: Schema.ObjectId, ref: 'Agent' }], required: true },
     // Upvotes and downvotes
     upvotes: { type: Number, default: 0 },
     downvotes: { type: Number, default: 0 },
