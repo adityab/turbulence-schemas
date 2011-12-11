@@ -7,12 +7,12 @@ AgentSchema = new Schema({
     }   
 });
 
-AgentSchema.methods.create = function create(agentType, content, callback) {
-    if(!agentType || !content)
+AgentSchema.methods.create = function create(agentType, contentId, callback) {
+    if(!agentType || !contentId)
         callback(new Error('AgentSchema.methods.create: Bad arguments'));
     else {
         this.data.agentType = agentType;
-        this.data.content = content;
+        this.data.content = contentId;
         callback(null);
     }
 };

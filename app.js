@@ -11,9 +11,13 @@ mongoose.connect('mongodb://localhost/metastreams_db_1');
 
 var Person = mongoose.model('agent_Person');
 var Agent = mongoose.model('Agent');
+var Status = mongoose.model('content_Status');
+var Post = mongoose.model('Post');
 
 var person = new Person();
 var agent = new Agent();
+var statusUpdate = new Status();
+var post = new Post();
 
 person.create('adityab', 'Aditya', 'Bhatt', [{key: 'email', val: 'aditya@adityabhatt.org'}], function(err) {
     if(err) console.log(err.message);
@@ -27,9 +31,28 @@ person.create('adityab', 'Aditya', 'Bhatt', [{key: 'email', val: 'aditya@adityab
                         agent.save(function(err) {
                             if(err) console.log(err.message);
                             else {
-                                console.log(person);
-                                console.log(agent);
-                                mongoose.disconnect();
+                                statusUpdate.create("This is my first status", ['declaration'], function(err) {
+                                    if(err) console.log(err.message);
+                                    else {
+                                        post.create(agent, { visibility: 'public' }, 'content_Status', statusUpdate._id, function(err) {
+                                            if(err) console.log(err.message);
+                                            else {
+                                                statusUpdate.save(function(err) {
+                                                    if(err) console.log(err.message);
+                                                    else {
+                                                        post.save(function(err) {
+                                                            if(err) console.log(err.message);
+                                                            else {
+                                                                console.log('all saved!');
+                                                                mongoose.disconnect();
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
                             }
                         });
                     }

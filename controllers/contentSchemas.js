@@ -4,4 +4,14 @@ StatusSchema = new Schema({
     tags: [String],
 });
 
+StatusSchema.methods.create = function create(text, tags, callback) {
+    if(!text)
+        callback(new Error("StatusSchema.methods.create: Bad arguments"));
+    else {
+        this.text = text;
+        this.tags = tags;
+        callback(null);
+    }
+};
+
 mongoose.model('content_Status', StatusSchema);

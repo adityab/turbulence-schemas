@@ -25,3 +25,15 @@ PostSchema = new Schema({
         content: { type: Schema.ObjectId, required: true }
     }
 });
+
+PostSchema.methods.create = function create(author, options, type, contentId, callback) {
+    if(!author || !options.visibility || !type || !contentId)
+        callback(new Error("PostSchema.methods.create: Bad arguments"));
+    else {
+        this.authorAgent = author;
+        this.visibility = options.visibility;
+        this.data.postType = type;
+        this.data.content = contentId;
+        callback(null);
+    }
+};
