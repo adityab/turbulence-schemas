@@ -3,7 +3,7 @@ AgentSchema = new Schema({
     date: { type: Date, default: Date.now, required: true },
     data: {
         agentType: { type: String, required: true },
-        content: { type: Schema.ObjectId, required: true }
+        content: { type: Schema.ObjectId, required: true, unique: true }
     }   
 });
 
