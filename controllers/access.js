@@ -1,25 +1,19 @@
-// save an agent to DB and log it
-saveAgent = function(agent) {
-    agent.save( function(err) {
-        if(err) {
-            console.log(err.message);
-            return;
-        }
-        console.log('Saved <' + agent.category + '> agent with ID ' + agent._id + ' and username <' + agent.data.username + '>');
-    });
-}
-
-
-var Post = mongoose.model('Post');
-
 // create a post
-createPost = function(author, options, type, content) { 
+createPost = function(author, options, type, content, callback) { 
     // throw up on null author, we must have an author
-    if (author == undefined)                throw new Error('undefined author');
-    
+    if (author == undefined) {
+        callback(new Error('author in createPost is UNDEFINED'));
+    }
     // check for agents' existence later
-    if (options.visibility == undefined)    throw new Error('undefined visibility');
+    if (options.visibility == undefined) {
+        callback(new Error('options.visibility in createPost is UNDEFINED'));
+    }
     
+    // check for content type
+    if (type == undefined){
+        callback(new Error('content.type in createPost is UNDEFINED'));
+    }
+
     var post = new Post();
     post.authorAgent = author;
     post.visibility = options.visibility;
@@ -29,16 +23,26 @@ createPost = function(author, options, type, content) {
     post.data.postType = type;
     post.data.content = content._id;
 
-    return post;
+    callback(null, post, content);
 }
 
 // save a post
-savePost = function(post) {
-   post.save( function(err) {
+savePost = function(post, content, callback) {
+    // save content first
+    content.save( function(err) {
        if(err) {
-           console.log(err.message);
-           return;
+           callback(err, null);
        }
-        console.log('Saved <' + post.visibility + '> of type <' + post.data.postType + '>');
-   });
+       else {
+           // and then post
+           post.save( function(err) {
+               if(err) {
+                   callback(err, null);
+               }
+               else {
+                   callback(null, post);
+               }
+            });
+        }
+    });
 }
