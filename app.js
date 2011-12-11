@@ -24,12 +24,12 @@ person.create('adityab', 'Aditya', 'Bhatt', [{key: 'email', val: 'aditya@adityab
                 person.save(function(err) {
                     if(err) console.log(err.message);
                     else {
-                        console.log('saving');
                         agent.save(function(err) {
                             if(err) console.log(err.message);
                             else {
                                 console.log(person);
                                 console.log(agent);
+                                mongoose.disconnect();
                             }
                         });
                     }
@@ -39,4 +39,3 @@ person.create('adityab', 'Aditya', 'Bhatt', [{key: 'email', val: 'aditya@adityab
     }
 });
 
-mongoose.disconnect();
