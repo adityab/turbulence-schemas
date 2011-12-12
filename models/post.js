@@ -37,3 +37,5 @@ PostSchema.methods.create = function create(author, options, type, contentId, ca
         callback(null);
     }
 };
+
+mongoose.model('Post', PostSchema);

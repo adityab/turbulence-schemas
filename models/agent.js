@@ -16,3 +16,5 @@ AgentSchema.methods.create = function create(agentType, contentId, callback) {
         callback(null);
     }
 };
+
+mongoose.model('Agent', AgentSchema);

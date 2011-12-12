@@ -4,7 +4,6 @@ mongoose = require('mongoose'),
 require('./models/schemas.js');
 require('./controllers/agentSchemas.js');
 require('./controllers/contentSchemas.js');
-require('./controllers/access.js');
 require('./controllers/init.js');
 
 mongoose.connect('mongodb://localhost/metastreams_db_1');
