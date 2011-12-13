@@ -1,0 +1,17 @@
+{
+  "name": "metastreams",
+  "description": "A node.js + mongoDB framework for building microblogging apps",
+  "version": "0.0.0",
+  "repository": "https://adityab@github.com/adityab/metastreams.git",
+  "author": "Aditya Bhatt <aditya@adityabhatt.org> (http://adityabhatt.org)",
+  "main": "lib/metastreams.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+      "mongodb": "*"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
