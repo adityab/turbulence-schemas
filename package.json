@@ -1,10 +1,10 @@
 {
-  "name": "metastreams",
-  "description": "A node.js + mongoDB framework for building microblogging apps",
+  "name": "turbulence-schemas",
+  "description": "Mongo core with schemas for agents, posts, and their derivatives."
   "version": "0.0.0",
-  "repository": "https://adityab@github.com/adityab/metastreams.git",
+  "repository": "https://adityab@github.com/adityab/turbulence-schemas.git",
   "author": "Aditya Bhatt <aditya@adityabhatt.org> (http://adityabhatt.org)",
-  "main": "lib/metastreams.js",
+  "main": "lib/turbulence-schemas.js",
   "directories": {
     "lib": "lib"
   },
