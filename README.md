@@ -20,11 +20,11 @@ The core models `Agent` and `Post` are exported, along with some derivative mode
             'Aditya',   // first name
             'Bhatt',    // last name
             [
-            { key: 'email', val: 'aditya@adityabhatt.org' },
-            { key: 'twitter', val: 'aditya_bhatt' },
-            { key: 'facebook', val: 'aditya.j.bhatt' },
-            { key: 'skype', val: 'aditya.j.bhatt' },
-            { key: 'email', val: 'aditya_bhatt@daiict.ac.in' }
+                { key: 'email', val: 'aditya@adityabhatt.org' },
+                { key: 'twitter', val: 'aditya_bhatt' },
+                { key: 'facebook', val: 'aditya.j.bhatt' },
+                { key: 'skype', val: 'aditya.j.bhatt' },
+                { key: 'email', val: 'aditya_bhatt@daiict.ac.in' }
             ],
             function (err) {
                 if(err) console.log(err.message);
