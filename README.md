@@ -9,6 +9,7 @@ The core models `Agent` and `Post` are exported, along with some derivative mode
     npm install -g
 
 ## Usage
+    ```javascript
     var StreamNet = require('turbulence-schemas');
 
     var person = new StreamNet.agentTypes.Person();
@@ -41,3 +42,4 @@ The core models `Agent` and `Post` are exported, along with some derivative mode
                     }
             });
     });
+    ```
