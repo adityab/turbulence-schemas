@@ -9,37 +9,37 @@ The core models `Agent` and `Post` are exported, along with some derivative mode
     npm install -g
 
 ## Usage
-    ```javascript
-    var StreamNet = require('turbulence-schemas');
+```js
+var StreamNet = require('turbulence-schemas');
 
-    var person = new StreamNet.agentTypes.Person();
+var person = new StreamNet.agentTypes.Person();
 
-    StreamNet.connect('localhost', 'tester', function() {
+StreamNet.connect('localhost', 'tester', function() {
         
-        person.create(
-            'adityab',  // username
-            'Aditya',   // first name
-            'Bhatt',    // last name
-            [
-                { key: 'email', val: 'aditya@adityabhatt.org' },
-                { key: 'twitter', val: 'aditya_bhatt' },
-                { key: 'facebook', val: 'aditya.j.bhatt' },
-                { key: 'skype', val: 'aditya.j.bhatt' },
-                { key: 'email', val: 'aditya_bhatt@daiict.ac.in' }
-            ],
-            function (err) {
-                if(err) console.log(err.message);
-                    else {
-                        person.save(function (err) {
-                            if(err) {
-                                console.log(err.message);
-                                StreamNet.disconnect();
-                            }
-                            else {
-                                StreamNet.disconnect();
-                            }
-                        });
-                    }
-            });
-    });
-    ```
+    person.create(
+        'adityab',  // username
+        'Aditya',   // first name
+        'Bhatt',    // last name
+        [
+            { key: 'email', val: 'aditya@adityabhatt.org' },
+            { key: 'twitter', val: 'aditya_bhatt' },
+            { key: 'facebook', val: 'aditya.j.bhatt' },
+            { key: 'skype', val: 'aditya.j.bhatt' },
+            { key: 'email', val: 'aditya_bhatt@daiict.ac.in' }
+        ],
+        function (err) {
+            if(err) console.log(err.message);
+                else {
+                    person.save(function (err) {
+                        if(err) {
+                            console.log(err.message);
+                            StreamNet.disconnect();
+                        }
+                        else {
+                            StreamNet.disconnect();
+                        }
+                    });
+                }
+        });
+});
+```
